@@ -3,24 +3,17 @@ public class SmartHomeDriver {
 
         System.out.println("Welcome to the Smart Home System"); //commit 1
 
-        SmartBulb bulb1 = new SmartBulb();
-        bulb1.turnOn();
-        bulb1.setColour("red");
+        SmartSwitch smartSwitch = new SmartSwitch();
+        smartSwitch.turnOn();
 
-        SmartBulb bulb2 = new SmartBulb(false,"yellow"); //commit2 +smartbulb class
+        smartSwitch.addBulb(new SmartBulb(true, "red"));
+        smartSwitch.addBulb(new SmartBulb(false, "yellow"));
 
-        SmartBulb[] bulbArray = new SmartBulb[2];
-        bulbArray[0] = bulb1;
-        bulbArray[1] = bulb2;
+        smartSwitch.display();
 
-        //display bulb data
-        System.out.println("Bulb1 is on: " + bulbArray[0].getStatus());
-        System.out.println("Bulb2 is on: " + bulbArray[1].getStatus());
+        smartSwitch.turnAllOff();
+        smartSwitch.turnAllOn("blue");
 
-        for(int i = 0; i < bulbArray.length; i++) {
-            System.out.println("Bulb " + (i+1) + " is on: " + bulbArray[i].getStatus());
-        }
-        //commit3 - final commit
-
+        smartSwitch.display();
     }
 }
