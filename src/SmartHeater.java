@@ -29,16 +29,16 @@ public class SmartHeater extends SmartDevice{
     //other methods
 
     public void turnOn(int _temperature) {
-        this.status = true;
+        super.turnOn();
         this.temperature= _temperature;
-        System.out.println("Attempting to turn on the heater at "+ this.ipAddress);
-        System.out.println("The heater at "+ this.ipAddress +" was turned successfully ON at " + this.temperature + " degrees");
+        System.out.println("Attempting to turn on the heater at "+ super.getIpAddress());
+        System.out.println("The heater at "+ super.getIpAddress() +" was turned successfully ON at " + this.temperature + " degrees");
     }
 
     public void turnOff() {
-        this.status = false;
-        System.out.println("Attempting to turn the heater at "+ this.ipAddress + " off");
-        System.out.println("The heater at "+ this.ipAddress +" was turned successfully OFF");
+        super.turnOff();
+        System.out.println("Attempting to turn the heater at "+ super.getIpAddress() + " off");
+        System.out.println("The heater at "+ super.getIpAddress() +" was turned successfully OFF");
     }
 
     public void setTimer(int _minutes)
@@ -46,15 +46,15 @@ public class SmartHeater extends SmartDevice{
         this.isTimerOn=true;
         this.timerMinutes=_minutes;
 
-        if(this.status)
+        if(super.getStatus())
         {
 
-            System.out.println("The device at "+ this.ipAddress + " will turn on in " + this.timerMinutes + " minutes");
+            System.out.println("The device at "+ super.getIpAddress() + " will turn on in " + this.timerMinutes + " minutes");
             System.out.println("Call sent to the device.......");
         }
         else
         {
-            System.out.println("The device at "+ this.ipAddress + " will turn off in " + this.timerMinutes + " minutes");
+            System.out.println("The device at "+ super.getIpAddress() + " will turn off in " + this.timerMinutes + " minutes");
             System.out.println("Call sent to the device.......");
         }
 

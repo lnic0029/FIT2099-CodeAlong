@@ -1,7 +1,7 @@
 public class SmartDevice {
     //private attributes
-    protected String ipAddress;
-    protected boolean status;
+    private String ipAddress;
+    private boolean status;
     private double consumptionToday; //inWatts
 
     public SmartDevice(String _ipAddress, boolean _status) {
