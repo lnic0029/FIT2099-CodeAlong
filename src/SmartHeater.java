@@ -78,6 +78,9 @@ public class SmartHeater {
 
     }
 
+    public void display() {
+        System.out.println("Heater at " + this.getIpAddress() + " is on: " + this.getStatus() + ". Temperature:" + this.getTemperature() + ". Today's consumption: " + this.getConsumptionToday());
+    }
 
 
 }

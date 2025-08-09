@@ -20,6 +20,7 @@ public class LedStripe {
     }
 
 
+
     //getters and setters
     public String getIpAddress() {
         return ipAddress;
@@ -87,6 +88,12 @@ public class LedStripe {
     }
 
 
+    public void display() {
+        System.out.println("LedStripe  at " + this.getIpAddress() + " is on: " + this.getStatus() + ". Colour:" + this.getColour() + " Today's consumption: " + this.getConsumptionToday());
+        if(this.nextLedStripe != null){
+            this.nextLedStripe.display();
+        }
+    }
 
 
 }

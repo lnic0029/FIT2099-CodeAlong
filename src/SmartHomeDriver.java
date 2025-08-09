@@ -44,20 +44,14 @@ public class SmartHomeDriver {
                     break;
                 case 3:
                     //Lighting
-                    System.out.println("SmartSwitch  at " + smartSwitch1.getIpAddress() + " is on: " + smartSwitch1.getStatus() + " Today's consumption: " + smartSwitch1.getConsumptionToday());
-                    int i = 0;
-                    for (SmartBulb smartBulb : smartSwitch1.getBulbs()) {
-                        i++;
-                        System.out.println("Bulb " + i + " at " + smartBulb.getIpAddress() + " is on: " + smartBulb.getStatus() + ". Colour:" + smartBulb.getColour() + ". Today's consumption: " + smartBulb.getConsumptionToday());
-                    }
+                    smartSwitch1.display();
                     //Smart TV
-                    System.out.println("Smart TV at " + smartTVV1.getIpAddress() + " is on: " + smartTVV1.getStatus() + ". Today's consumption: " + smartTVV1.getConsumptionToday());
+                    smartTVV1.display();
                     //Heaters
-                    System.out.println("Heater at " + smartHeater1.getIpAddress() + " is on: " + smartHeater1.getStatus() + ". Temperature:" + smartHeater1.getTemperature() + ". Today's consumption: " + smartHeater1.getConsumptionToday());
-                    System.out.println("Heater at " + smartHeater2.getIpAddress() + " is on: " + smartHeater2.getStatus() + ". Temperature:" + smartHeater2.getTemperature() + ". Today's consumption: " + smartHeater2.getConsumptionToday());
+                    smartHeater1.display();
+                    smartHeater2.display();
                     //LEDStripes
-                    System.out.println("LedStripe  at " + ledStripe1.getIpAddress() + " is on: " + ledStripe1.getStatus() + ". Colour:" + ledStripe1.getColour() + " Today's consumption: " + ledStripe1.getConsumptionToday());
-                    System.out.println("LedStripe  at " + ledStripe2.getIpAddress() + " is on: " + ledStripe2.getStatus() + ". Colour:" + ledStripe2.getColour() + " Today's consumption: " + ledStripe2.getConsumptionToday());
+                    ledStripe1.display();
 
                     break;
 
