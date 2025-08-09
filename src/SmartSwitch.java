@@ -1,37 +1,19 @@
 import java.util.ArrayList;
 
-public class SmartSwitch {
+public class SmartSwitch extends SmartDevice{
 
     //private attributes
-    private String ipAddress;
-    private boolean status;
-    private double consumptionToday; //inWatts
     private ArrayList<SmartBulb> smartBulbs;
 
     //constructor
     public SmartSwitch(String _ipAddress, boolean _status) {
-        this.ipAddress = _ipAddress;
-        this.status = _status;
+        super(_ipAddress, _status);
         this.smartBulbs = new ArrayList<SmartBulb>();
     }
 
 
     //getters and setters
-    public String getIpAddress() {
-        return ipAddress;
-    }
 
-    public void setIpAddress(String ipAddress) {
-        this.ipAddress = ipAddress;
-    }
-
-    public boolean getStatus() {
-        return status;
-    }
-
-    public double getConsumptionToday() {
-        return Utils.getRandomConsumption();
-    }
 
     //Other methods
     public void turnOn() {
@@ -63,7 +45,7 @@ public class SmartSwitch {
 
     public void turnAllOff() {
         this.status = true;
-        for (SmartBulb smartbulb : smartBulbs
+        for (SmartDevice smartbulb : smartBulbs
         ) {
             smartbulb.turnOff();
         }
@@ -71,8 +53,8 @@ public class SmartSwitch {
 
     public double getTotalConsumptionToday() {
         double totalConsumption = 0;
-        totalConsumption += this.consumptionToday;
-        for (SmartBulb smartbulb : smartBulbs
+        totalConsumption += super.getConsumptionToday();
+        for (SmartDevice smartbulb : smartBulbs
         ) {
             totalConsumption += smartbulb.getConsumptionToday();
         }
@@ -80,7 +62,7 @@ public class SmartSwitch {
     }
 
     public void display() {
-        System.out.println("SmartSwitch  at " + this.getIpAddress() + " is on: " + this.getStatus() + " Today's consumption: " + this.getConsumptionToday());
+        System.out.println("SmartSwitch  at " + this.getIpAddress() + " is on: " + this.getStatus() + " Today's consumption: " + super.getConsumptionToday());
         int i = 0;
         for (SmartBulb smartBulb : this.getBulbs()) {
             i++;

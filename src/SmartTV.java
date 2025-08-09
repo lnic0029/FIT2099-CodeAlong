@@ -1,36 +1,17 @@
-public class SmartTV {
+public class SmartTV extends SmartDevice{
 
     //private attributes
-    private String ipAddress;
-    private boolean status;
-    private double consumptionToday; //inWatts
     private boolean isTimerOn;
     private int timerMinutes;
 
     //constructor
     public SmartTV(String _ipAddress, boolean _status) {
-        this.ipAddress = _ipAddress;
-        this.status = _status;
+        super(_ipAddress,_status);
 
     }
 
     //getters and setters
-    public String getIpAddress() {
-        return ipAddress;
-    }
 
-    public void setIpAddress(String ipAddress) {
-        this.ipAddress = ipAddress;
-    }
-
-    public boolean getStatus() {
-        return status;
-    }
-
-
-    public double getConsumptionToday() {
-        return Utils.getRandomConsumption();
-    }
     //other methods
 
     public void turnOn() {
@@ -63,7 +44,7 @@ public class SmartTV {
     }
 
     public void display() {
-        System.out.println("Smart TV at " + this.getIpAddress() + " is on: " + this.getStatus() + ". Today's consumption: " + this.getConsumptionToday());
+        System.out.println("Smart TV at " + this.getIpAddress() + " is on: " + this.getStatus() + ". Today's consumption: " + super.getConsumptionToday());
     }
 
 }
