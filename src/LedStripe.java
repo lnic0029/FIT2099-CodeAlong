@@ -1,44 +1,24 @@
-public class LedStripe extends SmartDevice{
+public class LedStripe extends SmartLighting{
 
     //private attributes
-    private String colour;
-    private String type;
-    private int dimmingLevel;
 
     private LedStripe nextLedStripe;
 
     //constructor
     public LedStripe(String _ipAddress, boolean _status, String _colour, String _type) {
-        super(_ipAddress, _status);
-        this.colour = _colour;
-        this.type=_type; // "dimmable or notDimmable"
-        this.dimmingLevel=100;
+        super(_ipAddress, _status,_colour,_type);
     }
-
-
-    public String getColour() {
-        return colour;
-    }
-
-    public void setColour(String colour) {
-        this.colour = colour;
-    }
-
 
     public LedStripe getNextLedStripe() {
         return this.nextLedStripe;
     }
 
-    public void setDimmingLevel(int dimmingLevel) {
-        if (this.type=="dimmable")
-            this.dimmingLevel = dimmingLevel;
-    }
 
     //other methods
     @Override
     public void turnOn() {
-        this.status = true;
-        System.out.println("The LedStripe at "+ this.ipAddress +" was turned on successfully");
+        super.turnOn();
+        System.out.println("The LedStripe at "+ super.getIpAddress() +" was turned on successfully");
         if (nextLedStripe!=null)
         {
             this.nextLedStripe.turnOn();
@@ -47,8 +27,8 @@ public class LedStripe extends SmartDevice{
 
     @Override
     public void turnOff() {
-        this.status = false;
-        System.out.println("The LedStripe at "+ this.ipAddress +" was turned off successfully");
+        super.turnOff();
+        System.out.println("The LedStripe at "+ super.getIpAddress() +" was turned off successfully");
         if (nextLedStripe!=null)
         {
             this.nextLedStripe.turnOff();
@@ -57,7 +37,7 @@ public class LedStripe extends SmartDevice{
     public void attachLedStripe(LedStripe _ledStripe)
     {
         this.nextLedStripe=_ledStripe;
-        if(this.status)
+        if(super.getStatus())
             this.nextLedStripe.turnOn();
         else
             this.nextLedStripe.turnOff();
@@ -70,7 +50,7 @@ public class LedStripe extends SmartDevice{
 
 
     public void display() {
-        System.out.println("LedStripe  at " + super.getIpAddress() + " is on: " + super.getStatus() + ". Colour:" + this.getColour() + " Today's consumption: " + super.getConsumptionToday());
+        System.out.println("LedStripe  at " + super.getIpAddress() + " is on: " + super.getStatus() + ". Colour:" + super.getColour() + " Today's consumption: " + super.getConsumptionToday());
         if(this.nextLedStripe != null){
             this.nextLedStripe.display();
         }

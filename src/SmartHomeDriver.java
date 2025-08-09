@@ -7,8 +7,9 @@ public class SmartHomeDriver {
 
         //SETUP IOT Ecosystem
         SmartSwitch smartSwitch1=new SmartSwitch("128.1.1.1",false);
-        smartSwitch1.addBulb(new SmartBulb("128.1.1.2",false,"red","dimmable"));
-        smartSwitch1.addBulb(new SmartBulb("128.1.1.3",false,"blue", "nonDimmable"));
+        smartSwitch1.addSmartLighting(new SmartLighting("128.1.1.2",false,"red","dimmable"));
+        smartSwitch1.addSmartLighting(new SmartLighting("128.1.1.3",false,"blue", "nonDimmable"));
+        smartSwitch1.addSmartLighting(new LedStripe("128.1.1.9",false,"red","dimmable"));
 
         SmartTV smartTVV1 = new SmartTV("128.1.1.4", false);
 
@@ -18,7 +19,6 @@ public class SmartHomeDriver {
         LedStripe ledStripe1 = new LedStripe("128.1.1.7",false,"yellow", "dimmable");
         LedStripe ledStripe2 = new LedStripe("128.1.1.8",false,"yellow", "dimmable");
         ledStripe1.attachLedStripe(ledStripe2);
-
 
 
         //LOAD CONTROL MENU

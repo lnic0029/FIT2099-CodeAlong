@@ -15,13 +15,13 @@ public class SmartTV extends SmartDevice{
     //other methods
 
     public void turnOn() {
-        this.status = true;
-        System.out.println("The SmartTV at "+ this.ipAddress +" was turned ON succesfully");
+        super.turnOn();
+        System.out.println("The SmartTV at "+ super.getIpAddress() +" was turned ON succesfully");
     }
 
     public void turnOff() {
-        this.status = false;
-        System.out.println("The SmartTV at "+ this.ipAddress +" was turned OFF succesfully");
+        super.turnOff();
+        System.out.println("The SmartTV at "+ super.getIpAddress() +" was turned OFF succesfully");
     }
 
     public void setTimer(int _minutes)
@@ -29,22 +29,22 @@ public class SmartTV extends SmartDevice{
         this.isTimerOn=true;
         this.timerMinutes=_minutes;
 
-        if(this.status)
+        if(super.getStatus())
         {
 
-            System.out.println("The smart TV at "+ this.ipAddress + " will turn on in " + this.timerMinutes + " minutes");
+            System.out.println("The smart TV at "+ super.getIpAddress() + " will turn on in " + this.timerMinutes + " minutes");
             System.out.println("Call sent to the device.......");
         }
         else
         {
-            System.out.println("The smart TV at "+ this.ipAddress + " will turn off in " + this.timerMinutes + " minutes");
+            System.out.println("The smart TV at "+ super.getIpAddress() + " will turn off in " + this.timerMinutes + " minutes");
             System.out.println("Call sent to the device.......");
         }
 
     }
 
     public void display() {
-        System.out.println("Smart TV at " + this.getIpAddress() + " is on: " + this.getStatus() + ". Today's consumption: " + super.getConsumptionToday());
+        System.out.println("Smart TV at " + super.getIpAddress() + " is on: " + super.getStatus() + ". Today's consumption: " + super.getConsumptionToday());
     }
 
 }

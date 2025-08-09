@@ -1,11 +1,11 @@
-public class SmartBulb extends SmartDevice {
+public class SmartLighting extends SmartDevice {
 
     private String colour;
     private String type;
     private int dimmingLevel;
 
     //constructor
-    public SmartBulb(String _ipAddress, boolean _status, String _colour, String _type) {
+    public SmartLighting(String _ipAddress, boolean _status, String _colour, String _type) {
         super(_ipAddress, _status);
         this.colour = _colour;
         this.type = _type; // "dimmable or notDimmable"
